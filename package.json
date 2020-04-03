@@ -1,0 +1,38 @@
+{
+  "name": "Javascript-Capstone",
+  "version": "1.0.0",
+  "description": "Javascript capstone project built with Phaser.js a framework on HTML game development",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "webpack --watch",
+    "start": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fegzycole/Javascript-Capstone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fegzycole/Javascript-Capstone/issues"
+  },
+  "homepage": "https://github.com/fegzycole/Javascript-Capstone#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "file-loader": "^6.0.0",
+    "jest": "^25.2.6",
+    "url-loader": "^4.0.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "phaser": "^3.22.0"
+  }
+}
