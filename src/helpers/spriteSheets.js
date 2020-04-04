@@ -1,21 +1,9 @@
 const spriteSheets = [
   {
-    path: 'assets/idle_hero.png',
+    path: 'assets/hero.png',
     name: 'hero',
-    frameWidth: 97,
-    frameHeight: 100,
-  },
-  {
-    path: 'assets/jumping_hero.png',
-    name: 'jumping-hero',
-    frameWidth: 97,
-    frameHeight: 100,
-  },
-  {
-    path: 'assets/running_hero.png',
-    name: 'running-hero',
-    frameWidth: 95,
-    frameHeight: 115,
+    frameWidth: 72,
+    frameHeight: 90,
   },
   {
     path: 'assets/flame.png',
@@ -26,8 +14,8 @@ const spriteSheets = [
   {
     path: 'assets/coin.png',
     name: 'coin',
-    frameWidth: 50,
-    frameHeight: 30,
+    frameWidth: 84,
+    frameHeight: 84,
   },
 ];
 

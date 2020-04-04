@@ -4,7 +4,9 @@ import 'phaser';
 import images from '../helpers/images';
 import spriteSheets from '../helpers/spriteSheets';
 import platformsArray from '../helpers/platforms';
+import generateEnemies from '../helpers/enemies';
 import gameState from '../state/state';
+import animate from '../helpers/animations';
 
 class MyScene extends Phaser.Scene {
   constructor() {
@@ -24,13 +26,37 @@ class MyScene extends Phaser.Scene {
   }
 
   create() {
-    // gameState.bg = this.add.image(1280, 300, 'bg');
-
     gameState.water = this.physics.add.staticGroup();
 
-    for (let i = 50; i <= 20000; i += 125) {
-      gameState.water.create(i, 600, 'water');
+    for (let i = 50; i <= 50000; i += 125) {
+      gameState.water.create(i, 610, 'water');
     }
+
+    gameState.mace = this.physics.add.group();
+
+    generateEnemies.generateMace().forEach(({ x, y }) => {
+      gameState.mace.create(x, y, 'mace');
+    });
+
+    gameState.mace.children.entries.forEach((mace) => {
+      mace.setScale(0.3, 0.3);
+      gameState.mace.move = this.add.tween({
+        targets: mace,
+        x: mace.x + 100,
+        ease: 'Linear',
+        duration: 1000,
+        repeat: -1,
+        yoyo: true,
+      });
+    });
+
+    gameState.coins = this.physics.add.group();
+
+    gameState.coins.create(100, 20, 'coin');
+
+    gameState.coins.children.entries.forEach((coin) => {
+      coin.setScale(0.3, 0.3);
+    });
 
     gameState.platforms = this.physics.add.staticGroup();
 
@@ -50,62 +76,30 @@ class MyScene extends Phaser.Scene {
     gameState.player.setCollideWorldBounds(true);
 
     this.physics.add.collider(gameState.player, gameState.platforms);
+    this.physics.add.collider(gameState.mace, gameState.platforms);
+    this.physics.add.collider(gameState.coins, gameState.platforms);
 
     gameState.cursors = this.input.keyboard.createCursorKeys();
 
-    this.createAnimations();
-  }
-
-  createAnimations() {
-    this.anims.create({
-      key: 'run',
-      frames: this.anims.generateFrameNumbers('running-hero', { start: 7, end: 9 }),
-      frameRate: 10,
-      repeat: -1,
-    });
-
-    this.anims.create({
-      key: 'idle',
-      frames: this.anims.generateFrameNumbers('hero', { start: 0, end: 0 }),
-      frameRate: 10,
-      repeat: -1,
-    });
-
-    this.anims.create({
-      key: 'jump',
-      frames: this.anims.generateFrameNumbers('jumping-hero', { start: 0, end: 1 }),
-      frameRate: 10,
-      repeat: -1,
-    });
-
-    this.anims.create({
-      key: 'fire',
-      frames: this.anims.generateFrameNumbers('fire'),
-      frameRate: 10,
-      repeat: -1,
-    });
-
-    this.anims.create({
-      key: 'rotate',
-      frames: this.anims.generateFrameNumbers('coin'),
-      frameRate: 10,
-      repeat: -1,
-    });
+    animate(this);
   }
 
   update() {
+    gameState.coins.children.entries.forEach((coin) => {
+      coin.anims.play('rotate', true);
+    });
+
     if (gameState.cursors.right.isDown) {
       gameState.player.flipX = false;
       gameState.player.setVelocityX(gameState.speed);
-      gameState.player.anims.play('run', true);
+      gameState.player.anims.play('move', true);
     } else if (gameState.cursors.left.isDown) {
       gameState.player.flipX = true;
       gameState.player.setVelocityX(-gameState.speed);
-      gameState.player.anims.play('run', true);
+      gameState.player.anims.play('move', true);
     } else if (gameState.cursors.up.isDown
     && gameState.player.body.touching.down) {
-      gameState.player.anims.play('jump', true);
-      gameState.player.setVelocityY(-550);
+      gameState.player.setVelocityY(-330);
     } else {
       gameState.player.setVelocityX(0);
       gameState.player.anims.play('idle', true);
