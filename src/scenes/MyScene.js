@@ -4,6 +4,7 @@ import 'phaser';
 import images from '../helpers/images';
 import spriteSheets from '../helpers/spriteSheets';
 import platformsArray from '../helpers/platforms';
+import coinsCoordinates from '../helpers/coins';
 import generateEnemies from '../helpers/enemies';
 import gameState from '../state/state';
 import animate from '../helpers/animations';
@@ -32,6 +33,12 @@ class MyScene extends Phaser.Scene {
       gameState.water.create(i, 610, 'water');
     }
 
+    gameState.fire = this.physics.add.group();
+
+    generateEnemies.generateFire().forEach(({ x, y }) => {
+      gameState.fire.create(x, y, 'flame');
+    });
+
     gameState.mace = this.physics.add.group();
 
     generateEnemies.generateMace().forEach(({ x, y }) => {
@@ -52,9 +59,8 @@ class MyScene extends Phaser.Scene {
 
     gameState.coins = this.physics.add.group();
 
-    gameState.coins.create(100, 20, 'coin');
-
-    gameState.coins.children.entries.forEach((coin) => {
+    coinsCoordinates.forEach(({ x, y }) => {
+      const coin = gameState.coins.create(x, y, 'coin');
       coin.setScale(0.3, 0.3);
     });
 
@@ -78,6 +84,7 @@ class MyScene extends Phaser.Scene {
     this.physics.add.collider(gameState.player, gameState.platforms);
     this.physics.add.collider(gameState.mace, gameState.platforms);
     this.physics.add.collider(gameState.coins, gameState.platforms);
+    this.physics.add.collider(gameState.fire, gameState.platforms);
 
     gameState.cursors = this.input.keyboard.createCursorKeys();
 
@@ -87,6 +94,10 @@ class MyScene extends Phaser.Scene {
   update() {
     gameState.coins.children.entries.forEach((coin) => {
       coin.anims.play('rotate', true);
+    });
+
+    gameState.fire.children.entries.forEach((fire) => {
+      fire.anims.play('burn', true);
     });
 
     if (gameState.cursors.right.isDown) {

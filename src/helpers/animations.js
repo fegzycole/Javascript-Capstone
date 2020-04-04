@@ -14,8 +14,8 @@ const animate = (scene) => {
   });
 
   scene.anims.create({
-    key: 'fire',
-    frames: scene.anims.generateFrameNumbers('fire'),
+    key: 'burn',
+    frames: scene.anims.generateFrameNumbers('flame', { start: 0, end: 2 }),
     frameRate: 10,
     repeat: -1,
   });

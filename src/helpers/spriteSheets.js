@@ -8,8 +8,8 @@ const spriteSheets = [
   {
     path: 'assets/flame.png',
     name: 'flame',
-    frameWidth: 70,
-    frameHeight: 50,
+    frameWidth: 32,
+    frameHeight: 32,
   },
   {
     path: 'assets/coin.png',
