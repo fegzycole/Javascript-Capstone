@@ -3,7 +3,7 @@ const platforms = [
 ];
 
 for (let i = 150; i < 100000; i += 100) {
-  const arrayOfHeights = [160, 330, 510];
+  const arrayOfHeights = [160, 330, 500];
   const yCoordinate = arrayOfHeights[Math.floor(Math.random() * 3)];
 
   platforms.push({ x: i, y: yCoordinate });

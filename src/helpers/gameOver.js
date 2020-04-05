@@ -1,0 +1,23 @@
+const endGame = (gameState, scene) => {
+  gameState.gameOver = true;
+
+  scene.physics.pause();
+
+  gameState.mace.move.forEach((maceTween) => {
+    maceTween.stop();
+  });
+
+  gameState.player.anims.play('move', false);
+
+  gameState.player.anims.play('idle', false);
+
+  scene.add.text(450, 250, 'Game Over', { fontSize: '25px', fill: '#302d2d' }).setScrollFactor(0);
+  scene.add.text(420, 300, 'Click to Restart', { fontSize: '25px', fill: '#302d2d' }).setScrollFactor(0);
+
+  scene.input.on('pointerup', () => {
+    gameState.score = 0;
+    scene.scene.restart();
+  });
+};
+
+export default endGame;

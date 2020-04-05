@@ -27,6 +27,10 @@ const images = [
     path: 'assets/door.png',
     name: 'door',
   },
+  {
+    path: 'assets/leaderboard.png',
+    name: 'leaderboard',
+  },
 ];
 
 export default images;

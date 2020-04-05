@@ -1,17 +1,17 @@
 /* eslint-disable class-methods-use-this */
-/* eslint-disable no-undef */
-import 'phaser';
+import Phaser from 'phaser';
 import images from '../helpers/images';
 import spriteSheets from '../helpers/spriteSheets';
 import platformsArray from '../helpers/platforms';
 import coinsCoordinates from '../helpers/coins';
+import endGame from '../helpers/gameOver';
 import generateEnemies from '../helpers/enemies';
 import gameState from '../state/state';
 import animate from '../helpers/animations';
 
-class MyScene extends Phaser.Scene {
+class GameScene extends Phaser.Scene {
   constructor() {
-    super({ key: 'MyScene' });
+    super({ key: 'GameScene' });
   }
 
   preload() {
@@ -27,6 +27,10 @@ class MyScene extends Phaser.Scene {
   }
 
   create() {
+    gameState.shakeSessions = 0;
+
+    gameState.gameOver = false;
+
     gameState.water = this.physics.add.staticGroup();
 
     for (let i = 50; i <= 50000; i += 125) {
@@ -41,15 +45,22 @@ class MyScene extends Phaser.Scene {
       gameState.fire.create(x, y, 'flame');
     });
 
+    gameState.scoreText = this.add.text(0, 10, `Score: ${gameState.score}`,
+      { fontSize: '30px', fill: '#000000' }).setScrollFactor(0);
+
+    gameState.scoreText.fixedToCamera = true;
+
     gameState.mace = this.physics.add.group();
 
     generateEnemies.generateMace().forEach(({ x, y }) => {
       gameState.mace.create(x, y, 'mace');
     });
 
+    gameState.mace.move = [];
+
     gameState.mace.children.entries.forEach((mace) => {
       mace.setScale(0.3, 0.3);
-      gameState.mace.move = this.add.tween({
+      const maceTween = this.add.tween({
         targets: mace,
         x: mace.x + 100,
         ease: 'Linear',
@@ -57,6 +68,7 @@ class MyScene extends Phaser.Scene {
         repeat: -1,
         yoyo: true,
       });
+      gameState.mace.move.push(maceTween);
     });
 
     gameState.coins = this.physics.add.group();
@@ -89,19 +101,40 @@ class MyScene extends Phaser.Scene {
     this.physics.add.collider(gameState.fire, gameState.platforms);
     this.physics.add.collider(gameState.door, gameState.platforms);
 
+    this.physics.add.overlap(gameState.player, gameState.coins, this.collectCoin);
+    this.physics.add.collider(gameState.player, gameState.mace, (player) => {
+      player.setTint(0xff0000);
+      endGame(gameState, this);
+    });
+
+    this.physics.add.collider(gameState.player, gameState.fire, (player) => {
+      player.setTint(0x000000);
+      endGame(gameState, this);
+    });
+
     gameState.cursors = this.input.keyboard.createCursorKeys();
 
     animate(this);
   }
 
   update() {
-    gameState.coins.children.entries.forEach((coin) => {
-      coin.anims.play('rotate', true);
-    });
+    gameState.scoreText.x = this.cameras.cameras[0].x + 10;
 
-    gameState.fire.children.entries.forEach((fire) => {
-      fire.anims.play('burn', true);
-    });
+    if (!gameState.gameOver) {
+      gameState.coins.children.entries.forEach((coin) => {
+        coin.anims.play('rotate', true);
+      });
+      gameState.fire.children.entries.forEach((fire) => {
+        fire.anims.play('burn', true);
+      });
+    } else {
+      gameState.coins.children.entries.forEach((coin) => {
+        coin.anims.play('rotate', false);
+      });
+      gameState.fire.children.entries.forEach((fire) => {
+        fire.anims.play('burn', false);
+      });
+    }
 
     if (gameState.cursors.right.isDown) {
       gameState.player.flipX = false;
@@ -113,12 +146,24 @@ class MyScene extends Phaser.Scene {
       gameState.player.anims.play('move', true);
     } else if (gameState.cursors.up.isDown
     && gameState.player.body.touching.down) {
-      gameState.player.setVelocityY(-330);
+      gameState.player.setVelocityY(-320);
     } else {
       gameState.player.setVelocityX(0);
       gameState.player.anims.play('idle', true);
     }
+
+    if (gameState.player.y > gameState.configHeight + 20 && gameState.shakeSessions === 0) {
+      this.cameras.main.shake(240, 0.01, false);
+      gameState.shakeSessions += 1;
+      endGame(gameState, this);
+    }
+  }
+
+  collectCoin(player, coin) {
+    coin.disableBody(true, true);
+    gameState.score += 10;
+    gameState.scoreText.setText(`Score: ${gameState.score}`);
   }
 }
 
-export default MyScene;
+export default GameScene;
