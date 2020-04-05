@@ -23,6 +23,10 @@ const images = [
     path: 'assets/water.png',
     name: 'water',
   },
+  {
+    path: 'assets/door.png',
+    name: 'door',
+  },
 ];
 
 export default images;

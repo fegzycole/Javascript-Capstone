@@ -33,6 +33,8 @@ class MyScene extends Phaser.Scene {
       gameState.water.create(i, 610, 'water');
     }
 
+    gameState.door = this.physics.add.sprite(49940, 0, 'door').setScale(0.2, 0.2);
+
     gameState.fire = this.physics.add.group();
 
     generateEnemies.generateFire().forEach(({ x, y }) => {
@@ -85,6 +87,7 @@ class MyScene extends Phaser.Scene {
     this.physics.add.collider(gameState.mace, gameState.platforms);
     this.physics.add.collider(gameState.coins, gameState.platforms);
     this.physics.add.collider(gameState.fire, gameState.platforms);
+    this.physics.add.collider(gameState.door, gameState.platforms);
 
     gameState.cursors = this.input.keyboard.createCursorKeys();
 
