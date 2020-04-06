@@ -29,6 +29,8 @@ class GameScene extends Phaser.Scene {
   create() {
     gameState.shakeSessions = 0;
 
+    gameState.user.score = 0;
+
     gameState.gameOver = false;
 
     gameState.water = this.physics.add.staticGroup();
@@ -45,7 +47,7 @@ class GameScene extends Phaser.Scene {
       gameState.fire.create(x, y, 'flame');
     });
 
-    gameState.scoreText = this.add.text(0, 10, `Score: ${gameState.score}`,
+    gameState.scoreText = this.add.text(0, 10, `Score: ${gameState.user.score}`,
       { fontSize: '30px', fill: '#000000' }).setScrollFactor(0);
 
     gameState.scoreText.fixedToCamera = true;
@@ -165,8 +167,8 @@ class GameScene extends Phaser.Scene {
 
   collectCoin(player, coin) {
     coin.disableBody(true, true);
-    gameState.score += 10;
-    gameState.scoreText.setText(`Score: ${gameState.score}`);
+    gameState.user.score += 10;
+    gameState.scoreText.setText(`Score: ${gameState.user.score}`);
   }
 }
 
