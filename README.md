@@ -63,9 +63,9 @@ This project was Phaser.js, a 2D game framework for making HTML5 games for deskt
 
 - Hero ![screenshot](screenshots/Hero.png) main character of the game, he is on a quest to discover the hidden city.
 
-- Mace ![screenshot](screenshots/Mace.png) certified bad boy, it moves left and right and with its sharp edges is capable of fatally wounding our hero.
+- Mace ![screenshot](screenshots/Mace.png) certified bad boy, it moves left and right and with its sharp edges is capable of fatally wounding our hero. As you advance more in the game, you encounter more of it.
 
-- Fire ![screenshot](screenshots/Fire.png) static but deadly, don't come too close or you won't be alive to tell the tale.
+- Fire ![screenshot](screenshots/Fire.png) static but deadly, don't come too close or you won't be alive to tell the tale. Like the mace above, you encounter more of it as you advance in the game.
 
 - Water ![screenshot](screenshots/Water.png) Who doesn't like a good ol swim? I'll tell you who, our hero doesn't, he's afraid of the water, try not to send him into the deep please, will you?
 
