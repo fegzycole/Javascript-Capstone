@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 const express = require('express');
 const serveStatic = require('serve-static');
 const path = require('path');
