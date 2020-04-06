@@ -17,7 +17,6 @@ const leaderBoard = (() => {
         user: name,
         score,
       });
-      console.log(result);
       return result;
     } catch (error) {
       throw new Error('Unable to update score board, check your internet!');
@@ -27,7 +26,7 @@ const leaderBoard = (() => {
   const getUserScores = async () => {
     try {
       const { data: { result } } = await axios().get('/games/RLw8MNMi48AwgCq79bQv/scores');
-      return result.sort(compare).slice(0, 4);
+      return result.sort(compare).slice(0, 5);
     } catch (error) {
       throw new Error('Unable to get scores at this time');
     }

@@ -34,7 +34,7 @@ class LeaderboardScene extends Phaser.Scene {
       this.add.text(280, 240, error.message, { fontSize: '25px', fill: '#302d2d' });
     }
 
-    gameState.homeButton = this.add.sprite(500, 500, 'home').setScale(0.5, 0.5);
+    gameState.homeButton = this.add.sprite(500, 570, 'home').setScale(0.5, 0.5);
 
     gameState.homeButton.setInteractive();
 
