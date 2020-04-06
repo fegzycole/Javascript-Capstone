@@ -1,5 +1,5 @@
 const state = {
-  speed: 150,
+  speed: 200,
   ups: 380,
   width: 50000,
   configWidth: 1000,

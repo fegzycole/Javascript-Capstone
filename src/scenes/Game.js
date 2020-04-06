@@ -112,6 +112,10 @@ class GameScene extends Phaser.Scene {
       endGame(gameState, this);
     });
 
+    this.physics.add.overlap(gameState.player, gameState.door, () => {
+      this.scene.start('ConcludingScene');
+    });
+
     gameState.cursors = this.input.keyboard.createCursorKeys();
 
     animate(this);

@@ -2,6 +2,7 @@
 import Phaser from 'phaser';
 import WelcomeScene from '../scenes/Welcome';
 import GameScene from '../scenes/Game';
+import ConcludingScene from '../scenes/Conclusion';
 
 const config = {
   type: Phaser.AUTO,
@@ -21,7 +22,7 @@ const config = {
 
     },
   },
-  scene: [WelcomeScene, GameScene],
+  scene: [WelcomeScene, GameScene, ConcludingScene],
 };
 
 

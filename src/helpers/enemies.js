@@ -2,14 +2,14 @@ const enemiesGenerator = (() => {
   const generateMace = () => {
     const maces = [];
 
-    const arrayOfHeights = [0, 100, 300, 470];
+    const arrayOfHeights = [0, 100, 270, 400];
     const yCoordinate = arrayOfHeights[Math.floor(Math.random() * 4)];
 
-    for (let i = 200; i < 10000; i += 700) {
+    for (let i = 200; i < 10000; i += 500) {
       maces.push({ x: i, y: yCoordinate });
     }
 
-    for (let i = 10000; i < 20000; i += 600) {
+    for (let i = 10000; i < 20000; i += 550) {
       maces.push({ x: i, y: yCoordinate });
     }
 
@@ -31,18 +31,18 @@ const enemiesGenerator = (() => {
   const generateFire = () => {
     const fireCoordinates = [];
 
-    const arrayOfHeights = [0, 100, 300, 470];
+    const arrayOfHeights = [0, 100, 270, 400];
     const yCoordinate = arrayOfHeights[Math.floor(Math.random() * 4)];
 
-    for (let i = 700; i < 10000; i += 1000) {
+    for (let i = 700; i < 10000; i += 800) {
       fireCoordinates.push({ x: i, y: yCoordinate });
     }
 
-    for (let i = 10700; i < 20000; i += 800) {
+    for (let i = 10700; i < 20000; i += 600) {
       fireCoordinates.push({ x: i, y: yCoordinate });
     }
 
-    for (let i = 20700; i < 30000; i += 600) {
+    for (let i = 20700; i < 30000; i += 500) {
       fireCoordinates.push({ x: i, y: yCoordinate });
     }
 
