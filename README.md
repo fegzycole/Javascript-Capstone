@@ -69,37 +69,41 @@ This project was Phaser.js, a 2D game framework for making HTML5 games for deskt
 
 - Water ![screenshot](screenshots/Water.png) Who doesn't like a good ol swim? I'll tell you who, our hero doesn't, he's afraid of the water, try not to send him into the deep please, will you?
 
-- Coins ![screenshot](screenshots/.png) Shiny and sparkly, collect as much of it as you can.
+- Coins ![screenshot](screenshots/Coin.png) Shiny and sparkly, collect as much of it as you can.
 
 
-### H
+### How To Play
+
+The controls for the game are pretty basic, this was done intentionally for a better user experience
+
+- Top arrow makes the hero jump
+
+- Left arrow moves the hero to the left
+
+- Right arrow moves the hero to the right
+
+- Gravity brings the hero down, so there is no control for that.
 
 
-## Getting Started
+## Playing Locally
 
-- git clone https://github.com/fegzycole/Rails-capstone.git
+- git clone https://github.com/fegzycole/Javascript-Capstone.git
 
-- cd Rails-capstone
+- cd Javascript-Capstone
 
-- bundle update
+- Run ***npm start*** in your terminal to fire the Express server
 
-- bundle install
-
-- rails db:create
-
-- rails db:migrate (to add tables and columns)
-
-- rails server to fire the rails server
+- Visit http://localhost:8080 on your browser.
 
 
 ## Live Version
 
-- You can view the app [Here](https://secure-shelf-49955.herokuapp.com/)
+- You can view the app hosted online [here](https://nameless-sea-41411.herokuapp.com/)
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/fegzycole/Rails-capstone/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/fegzycole/Javascript-Capstone/issues) for a list of proposed features (and known issues).
 
 
 <!-- LICENSE -->
@@ -111,11 +115,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 Ferguson Iyara - [Github profile](https://github.com/fegzycole)
 
-Project Link: [Project repo](https://github.com/fegzycole/Rails-capstone)
+Project Link: [Project repo](https://github.com/fegzycole/Javascript-Capstone)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/badge/Contributors-1-%2300ff00
-[contributors-url]: https://github.com/fegzycole/Rails-capstone/graphs/contributors
+[contributors-url]: https://github.com/fegzycole/Javascript-Capstone/graphs/contributors
 [issues-shield]: https://img.shields.io/badge/issues-0-%2300ff00
-[issues-url]: https://github.com/fegzycole/Rails-capstone/issues/
+[issues-url]: https://github.com/fegzycole/Javascript-Capstone/issues/
