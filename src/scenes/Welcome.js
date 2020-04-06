@@ -27,6 +27,8 @@ class WelcomeScene extends Phaser.Scene {
 
     const domElement = this.add.dom(630, 230).createFromCache('nameform');
 
+    gameState.leaderBoardButton.setInteractive();
+
     domElement.addListener('click');
 
     domElement.on('click', (event) => {
@@ -52,8 +54,8 @@ class WelcomeScene extends Phaser.Scene {
     });
 
 
-    gameState.leaderBoardButton.on('pointerup', function showLeadeBoard() {
-      this.scene.start('LeaderBoardScene');
+    gameState.leaderBoardButton.on('pointerup', () => {
+      this.scene.start('LeaderboardScene');
     });
   }
 }

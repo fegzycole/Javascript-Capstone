@@ -8,6 +8,9 @@ import endGame from '../helpers/gameOver';
 import generateEnemies from '../helpers/enemies';
 import gameState from '../state/state';
 import animate from '../helpers/animations';
+import leaderBoardApi from '../api/leaderboard';
+
+const { sendUserScore } = leaderBoardApi();
 
 class GameScene extends Phaser.Scene {
   constructor() {
@@ -114,8 +117,17 @@ class GameScene extends Phaser.Scene {
       endGame(gameState, this);
     });
 
-    this.physics.add.overlap(gameState.player, gameState.door, () => {
-      this.scene.start('ConcludingScene');
+    this.physics.add.overlap(gameState.player, gameState.door, async () => {
+      const { user: { name, score } } = gameState;
+
+      try {
+        if (score > 0) {
+          await sendUserScore(name, score);
+        }
+        this.scene.start('ConcludingScene');
+      } catch (error) {
+        this.add.text(200, 180, error.message, { fontSize: '25px', fill: '#302d2d' }).setScrollFactor(0);
+      }
     });
 
     gameState.cursors = this.input.keyboard.createCursorKeys();

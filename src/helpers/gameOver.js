@@ -16,7 +16,9 @@ const endGame = async (gameState, scene) => {
   gameState.player.anims.play('idle', false);
 
   try {
-    await leaderBoardApi().sendUserScore(name, score);
+    if (score > 0) {
+      await leaderBoardApi().sendUserScore(name, score);
+    }
   } catch (error) {
     scene.add.text(200, 180, error.message, { fontSize: '25px', fill: '#302d2d' }).setScrollFactor(0);
   }
