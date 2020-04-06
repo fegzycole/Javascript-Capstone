@@ -1,8 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import Phaser from 'phaser';
 import gameState from '../state/state';
-import images from '../helpers/images';
-import spriteSheets from '../helpers/spriteSheets';
+import images from '../preloaders/images';
+import spriteSheets from '../preloaders/spriteSheets';
 import animate from '../helpers/animations';
 
 class ConcludingScene extends Phaser.Scene {
