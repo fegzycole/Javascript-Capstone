@@ -1,4 +1,5 @@
 
+// eslint-disable-next-line import/no-unresolved
 import axios from 'axios';
 
 export default () => axios.create({

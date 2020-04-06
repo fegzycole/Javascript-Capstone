@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this */
+// eslint-disable-next-line import/no-unresolved
 import Phaser from 'phaser';
 import images from '../preloaders/images';
 import spriteSheets from '../preloaders/spriteSheets';

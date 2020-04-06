@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import '@babel/polyfill';
 import leaderBoardApi from '../../src/api/leaderboard';
 

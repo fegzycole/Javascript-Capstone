@@ -1,4 +1,5 @@
 /* eslint-disable import/no-cycle */
+// eslint-disable-next-line import/no-unresolved
 import Phaser from 'phaser';
 import WelcomeScene from '../scenes/Welcome';
 import GameScene from '../scenes/Game';
