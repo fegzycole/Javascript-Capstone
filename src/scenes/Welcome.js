@@ -20,12 +20,12 @@ class WelcomeScene extends Phaser.Scene {
   create() {
     this.add.image(500, 300, 'bg');
 
-    gameState.leaderBoardButton = this.add.sprite(500, 310, 'leaderboard').setScale(0.5, 0.5);
+    gameState.leaderBoardButton = this.add.sprite(500, 360, 'leaderboard').setScale(0.5, 0.5);
 
     const text = this.add.text(240, 150, 'Please enter your name to start the game',
       { color: 'black', fontSize: '25px ' });
 
-    const domElement = this.add.dom(630, 230).createFromCache('nameform');
+    const domElement = this.add.dom(gameState.configWidth / 2, gameState.configHeight / 2 - 50).createFromCache('nameform');
 
     gameState.leaderBoardButton.setInteractive();
 

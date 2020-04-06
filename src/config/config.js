@@ -9,7 +9,7 @@ const config = {
   type: Phaser.AUTO,
   width: 1000,
   height: 600,
-  parent: 'phaser-example',
+  parent: 'divld',
   fps: { target: 60 },
   backgroundColor: 'b9eaff',
   dom: {
@@ -23,7 +23,14 @@ const config = {
 
     },
   },
-  scene: [WelcomeScene, GameScene, ConcludingScene, LeaderboardScene],
+  scene: [
+    WelcomeScene,
+    GameScene,
+    ConcludingScene,
+    LeaderboardScene,
+  ],
+  pixelArt: true,
+  roundPixels: true,
 };
 
 
