@@ -86,12 +86,14 @@ class GameScene extends Phaser.Scene {
       gameState.player.flipX = true;
       gameState.player.setVelocityX(-gameState.speed);
       gameState.player.anims.play('move', true);
-    } else if (gameState.cursors.up.isDown
-    && gameState.player.body.touching.down) {
-      gameState.player.setVelocityY(-320);
     } else {
       gameState.player.setVelocityX(0);
       gameState.player.anims.play('idle', true);
+    }
+
+    if (Phaser.Input.Keyboard.JustDown(gameState.cursors.space)
+    && gameState.player.body.touching.down) {
+      gameState.player.setVelocityY(-330);
     }
 
     if (gameState.player.y > gameState.configHeight + 20 && gameState.shakeSessions === 0) {

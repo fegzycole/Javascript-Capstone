@@ -74,22 +74,22 @@ This project was Phaser.js, a 2D game framework for making HTML5 games for deskt
 
 ### How To Play
 
-The controls for the game are pretty basic, this was done intentionally for a better user experience
-
-- Top arrow makes the hero jump
+- Space bar makes the hero jump up just enough to reach a platform.
 
 - Left arrow moves the hero to the left
 
 - Right arrow moves the hero to the right
 
-- Gravity brings the hero down, so there is no control for that.
-
 
 ## Playing Locally
+
+Copy the following instructions sequentially into your terminal
 
 - git clone https://github.com/fegzycole/Javascript-Capstone.git
 
 - cd Javascript-Capstone
+
+- Run npm install
 
 - Run ***npm start*** in your terminal to fire the Express server
 

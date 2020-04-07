@@ -13,4 +13,22 @@ body > div {
   left: calc(50vw - 500px);
   z-index: 10;
 }
+
+.textbox {
+  font-size: 16px;
+  background-color: inherit;
+  color: #242121;
+  border: 1px solid #000000;
+  padding: 7px 10px;
+  border-radius: 4px;
+}
+
+.submitbox {
+  font-size: 16px;
+  background-color: #21572f;
+  color: #ffffff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+}
 /*# sourceMappingURL=styles.css.map */
