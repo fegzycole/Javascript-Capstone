@@ -1,18 +1,14 @@
 canvas {
-  display: flex;
-  margin: auto;
+  flex-shrink: 0;
+  position: absolute;
+  top: calc(50vh - 320px);
+  left: calc(50vw - 500px);
 }
 
-div {
-  margin: 0px auto !important;
-  position: absolute !important;
-  top: 5px !important;
-  left: 145px !important;
-
-  div {
-    position: absolute !important;
-    top: 45% !important;
-    left: 50% !important; 
-    transform: translate(-50%, -50%) !important;
-  }
+body > div {
+  width: 480px;
+  position: absolute;
+  top: calc(50vh - 320px);
+  left: calc(50vw - 500px);
+  z-index: 10;
 }
