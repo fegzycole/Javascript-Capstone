@@ -9,11 +9,11 @@ const enemiesGenerator = (() => {
       maces.push({ x: i, y: yCoordinate });
     }
 
-    for (let i = 10000; i < 20000; i += 550) {
+    for (let i = 10000; i < 20000; i += 450) {
       maces.push({ x: i, y: yCoordinate });
     }
 
-    for (let i = 20000; i < 30000; i += 500) {
+    for (let i = 20000; i < 30000; i += 400) {
       maces.push({ x: i, y: yCoordinate });
     }
 
