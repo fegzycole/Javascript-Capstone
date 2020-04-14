@@ -13,7 +13,7 @@ const leaderBoard = (() => {
 
   const sendUserScore = async (name, score) => {
     try {
-      const result = await axios().post('/games/nP1GMNxEihjvVrq4hTuI/scores', {
+      const result = await axios().post('/games/7nOdBmmvNOBdspWoaGwe/scores', {
         user: name,
         score,
       });
@@ -25,7 +25,7 @@ const leaderBoard = (() => {
 
   const getUserScores = async () => {
     try {
-      const { data: { result } } = await axios().get('/games/nP1GMNxEihjvVrq4hTuI/scores');
+      const { data: { result } } = await axios().get('/games/7nOdBmmvNOBdspWoaGwe/scores');
       return result.sort(compare).slice(0, 5);
     } catch (error) {
       throw new Error('Unable to get scores at this time');
