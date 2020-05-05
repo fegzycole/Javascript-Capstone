@@ -130,8 +130,11 @@ class GameScene extends Phaser.Scene {
           await sendUserScore(name, score);
         }
         this.scene.start('ConcludingScene');
+
+        return null;
       } catch (error) {
         this.add.text(200, 180, error.message, { fontSize: '25px', fill: '#302d2d' }).setScrollFactor(0);
+        return null;
       }
     });
   }

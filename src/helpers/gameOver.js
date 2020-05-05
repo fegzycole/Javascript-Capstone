@@ -30,6 +30,8 @@ const endGame = async (gameState, scene) => {
     gameState.score = 0;
     scene.scene.restart();
   });
+
+  return null;
 };
 
 export default endGame;

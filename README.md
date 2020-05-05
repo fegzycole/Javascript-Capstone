@@ -25,7 +25,12 @@
   * [Prerequisites](#prerequisites)
 * [Credit](#credit)
 * [Screenshots](#screenshots)
-* [Roadmap](#roadmap)
+* [Characters](#characters)
+* [How To Play](#how-to-play)
+* [Playing Locally](#playing-locally)
+* [Testing](#testing)
+* [Live Version](#live-version)
+* [Future Improvements](#future-improvements)
 * [License](#license)
 * [Contact](#contact)
 
@@ -96,12 +101,21 @@ Copy the following instructions sequentially into your terminal
 - Visit http://localhost:8080 on your browser.
 
 
+## Testing
+
+- cd Javacript-Capstone
+
+- Run npm install
+
+- Run npm test to run the test suites
+
+
 ## Live Version
 
 - You can view the app hosted online [here](https://nameless-sea-41411.herokuapp.com/)
 
-<!-- ROADMAP -->
-## Roadmap
+<!-- FUTURE IMPROVEMENTS -->
+## Future Improvements
 
 See the [open issues](https://github.com/fegzycole/Javascript-Capstone/issues) for a list of proposed features (and known issues).
 
