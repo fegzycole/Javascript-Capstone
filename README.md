@@ -81,9 +81,9 @@ This project was Phaser.js, a 2D game framework for making HTML5 games for deskt
 
 - Space bar makes the hero jump up just enough to reach a platform.
 
-- Left arrow moves the hero to the left
+- Left arrow moves the hero to the left.
 
-- Right arrow moves the hero to the right
+- Right arrow moves the hero to the right.
 
 
 ## Playing Locally
@@ -112,7 +112,7 @@ Copy the following instructions sequentially into your terminal
 
 ## Live Version
 
-- You can view the app hosted online [here](https://nameless-sea-41411.herokuapp.com/)
+- You can view the app hosted online [here](https://nameless-sea-41411.herokuapp.com/).
 
 <!-- FUTURE IMPROVEMENTS -->
 ## Future Improvements
